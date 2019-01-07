@@ -107,6 +107,7 @@ export class TSRHandler {
 				},
 				initializeAsClear: (settings.initializeAsClear !== false)
 			}
+			c.isMultihreaded = true
 			this.tsr = new Conductor(c)
 			this._triggerupdateMapping()
 			this._triggerupdateTimeline()

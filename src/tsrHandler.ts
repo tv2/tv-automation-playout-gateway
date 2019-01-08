@@ -24,6 +24,7 @@ export interface TSRSettings { // Runtime settings from Core
 	devices: {
 		[deviceId: string]: {
 			type: DeviceType
+			threadUsage?: number
 			options?: {}
 		}
 	}

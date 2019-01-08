@@ -6770,9 +6770,9 @@ timed-out@^3.0.0:
   resolved "https://registry.yarnpkg.com/timed-out/-/timed-out-3.1.3.tgz#95860bfcc5c76c277f8f8326fd0f5b2e20eba217"
   integrity sha1-lYYL/MXHbCd/j4Mm/Q9bLiDrohc=
 
-"timeline-state-resolver@git+https://github.com/nrkno/tv-automation-state-timeline-resolver#4c6b8cc94d1c1aca31e6295288b64bb5c476cd1f":
+"timeline-state-resolver@git+https://github.com/nrkno/tv-automation-state-timeline-resolver#137c3b515728241398768f8a1e4610d854416594":
   version "1.3.3"
-  resolved "git+https://github.com/nrkno/tv-automation-state-timeline-resolver#4c6b8cc94d1c1aca31e6295288b64bb5c476cd1f"
+  resolved "git+https://github.com/nrkno/tv-automation-state-timeline-resolver#137c3b515728241398768f8a1e4610d854416594"
   dependencies:
     "@types/request" "^2.48.1"
     "@types/sprintf-js" "^1.1.0"
@@ -6793,9 +6793,9 @@ timed-out@^3.0.0:
     underscore-deep-extend "^1.1.5"
     ws "^6.1.2"
 
-"timeline-state-resolver@git+https://github.com/nrkno/tv-automation-state-timeline-resolver#c697fd7b1e8de121070f10b3296f91a036c82dc7":
+"timeline-state-resolver@git+https://github.com/nrkno/tv-automation-state-timeline-resolver#4c6b8cc94d1c1aca31e6295288b64bb5c476cd1f":
   version "1.3.3"
-  resolved "git+https://github.com/nrkno/tv-automation-state-timeline-resolver#c697fd7b1e8de121070f10b3296f91a036c82dc7"
+  resolved "git+https://github.com/nrkno/tv-automation-state-timeline-resolver#4c6b8cc94d1c1aca31e6295288b64bb5c476cd1f"
   dependencies:
     "@types/request" "^2.48.1"
     "@types/sprintf-js" "^1.1.0"

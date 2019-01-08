@@ -107,7 +107,7 @@
     "fast-clone": "^1.5.3",
     "pouchdb-node": "7.0.0",
     "promise-sequence": "^0.3.1",
-    "timeline-state-resolver": "git+https://github.com/nrkno/tv-automation-state-timeline-resolver#4c6b8cc94d1c1aca31e6295288b64bb5c476cd1f",
+    "timeline-state-resolver": "git+https://github.com/nrkno/tv-automation-state-timeline-resolver#137c3b515728241398768f8a1e4610d854416594",
     "tslib": "^1.9.2",
     "tv-automation-server-core-integration": "0.6.3",
     "underscore": "^1.9.1",

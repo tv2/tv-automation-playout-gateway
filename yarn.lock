@@ -559,12 +559,12 @@
   dependencies:
     "@sinonjs/commons" "^1.7.0"
 
-"@sofie-automation/blueprints-integration@https://github.com/olzzon/tv-automation-server-core.git#dist_blueprints_integration20210203_1":
+"@sofie-automation/blueprints-integration@https://github.com/olzzon/tv-automation-server-core.git#dist_blueprints_integration20210318_1":
   version "1.16.1"
-  resolved "https://github.com/olzzon/tv-automation-server-core.git#7a9931246cdc9de4ade244d2b6c3342bc0d8339f"
+  resolved "https://github.com/olzzon/tv-automation-server-core.git#02e60e96f8a10b10240bb41ddc7546bddcdba6cb"
   dependencies:
     moment "2.29.1"
-    timeline-state-resolver-types "git+https://github.com/olzzon/tv-automation-state-timeline-resolver#dist_types20210127_1"
+    timeline-state-resolver-types "git+https://github.com/olzzon/tv-automation-state-timeline-resolver#dist_types20210318_1"
     tslib "^2.0.3"
     underscore "1.11.0"
 
@@ -5992,15 +5992,15 @@ through@2, "through@>=2.2.7 <3":
   resolved "https://registry.yarnpkg.com/through/-/through-2.3.8.tgz#0dd4c9ffaabc357960b1b724115d7e0e86a2e1f5"
   integrity sha1-DdTJ/6q8NXlgsbckEV1+Doai4fU=
 
-"timeline-state-resolver-types@git+https://github.com/olzzon/tv-automation-state-timeline-resolver#dist_types20210127_1":
+"timeline-state-resolver-types@git+https://github.com/olzzon/tv-automation-state-timeline-resolver#dist_types20210318_1":
   version "1.3.0"
-  resolved "git+https://github.com/olzzon/tv-automation-state-timeline-resolver#d5d2ff5a6dd1970aae47cc5ead7fb3e719c7b069"
+  resolved "git+https://github.com/olzzon/tv-automation-state-timeline-resolver#0fc6694b521c29819be2f8215a0522b3a9f4450f"
   dependencies:
     tslib "^1.13.0"
 
-"timeline-state-resolver@git+https://github.com/olzzon/tv-automation-state-timeline-resolver#dist20210309_1":
+"timeline-state-resolver@git+https://github.com/olzzon/tv-automation-state-timeline-resolver#dist20210318_1":
   version "5.2.0"
-  resolved "git+https://github.com/olzzon/tv-automation-state-timeline-resolver#391b24261d33b1bbc0fb876c555e81981adec722"
+  resolved "git+https://github.com/olzzon/tv-automation-state-timeline-resolver#4a1b5d3929dc6213b5f1ece1eea56a7be2868cdc"
   dependencies:
     atem-state "^0.10.0"
     bufferutil "^4.0.1"

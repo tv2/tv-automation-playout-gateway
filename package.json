@@ -99,6 +99,7 @@
     "winston": "^2.4.2"
   },
   "resolutions": {
-    "node-license-validator/**/minimist": "^1.2.3"
+    "node-license-validator/**/minimist": "^1.2.3",
+    "node-license-validator/**/yargs": "^16.2.0"
   }
 }

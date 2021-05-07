@@ -593,7 +593,7 @@ export class TSRHandler {
 					&& deviceType === DeviceType.ATEM && !disableAtemUpload
 				) {
 					// const ssrcBgs = studio.config.filter((o) => o._id.substr(0, 18) === 'atemSSrcBackground')
-					const assets = (options as DeviceOptionsAtem).options.mediaPoolAssets
+					const assets = (options).options.mediaPoolAssets
 					if (assets && assets.length > 0) {
 						try {
 							// TODO: support uploading clips and audio
@@ -786,33 +786,41 @@ export class TSRHandler {
 		const expectedItems = expectedPlayoutItems.find({
 			studioId: peripheralDevice.studioId
 		})
+		const rundowns = _.indexBy(
+			this._coreHandler.core.getCollection('rundowns').find({
+				studioId: peripheralDevice.studioId
+			}),
+			'_id'
+		)
 
 		this.logger.debug(`VIZDEBUG: Items after filter ${JSON.stringify(expectedItems)}`)
 
-		await Promise.all(_.map(this.tsr.getDevices(), async (container) => {
-			if (await container.device.supportsExpectedPlayoutItems) {
-				this.logger.debug(`VIZDEBUG: Supports expected playout items`)
+		await Promise.all(
+			_.map(this.tsr.getDevices(), async (container) => {
+				if (await container.device.supportsExpectedPlayoutItems) {
+					this.logger.debug(`VIZDEBUG: Supports expected playout items`)
 
-				await container.device.handleExpectedPlayoutItems(
-					_.map(
-						_.filter(expectedItems, (item) => {
-							return (
-								item.deviceSubType === container.deviceType
-								// TODO: implement item.deviceId === container.deviceId
-							)
-						}),
-						item => {
-							return {
-								...item.content,
-								rundownId: item.rundownId,
-								playlistId: item.playlistId
+					await container.device.handleExpectedPlayoutItems(
+						_.map(
+							_.filter(expectedItems, (item) => {
+								return (
+									item.deviceSubType === container.deviceType
+									// TODO: implement item.deviceId === container.deviceId
+								)
+							}),
+							(item) => {
+								return {
+									...item.content,
+									rundownId: item.rundownId,
+									playlistId: item.rundownId && rundowns[item.rundownId]?.playlistId,
+									baseline: item.baseline
+								}
 							}
-						}
 					)
 				)
 
-			}
-		}))
+				}
+			}))
 	}
 	/**
 	 * Go through and transform timeline and generalize the Core-specific things

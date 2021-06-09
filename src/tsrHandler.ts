@@ -777,7 +777,7 @@ export class TSRHandler {
 		let expectedPlayoutItems = this._coreHandler.core.getCollection('expectedPlayoutItems')
 		const peripheralDevice = this._getPeripheralDevice()
 
-		this.logger.debug(`VIZDEBUG: Items before filter ${JSON.stringify(expectedPlayoutItems)}`)
+		this.logger.debug(`VIZDEBUG: Items before filter ${JSON.stringify(expectedPlayoutItems.find(undefined))}`)
 
 		const expectedItems = expectedPlayoutItems.find({
 			studioId: peripheralDevice.studioId

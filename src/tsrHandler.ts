@@ -459,6 +459,10 @@ export class TSRHandler {
 		}
 
 		if (peripheralDevice) {
+			const rundownPlaylists = this._coreHandler.core.getCollection('rundownPlaylists')
+			const activeRundownPlaylist = rundownPlaylists.findOne({ studioId: peripheralDevice.studioId, active: true })
+			const activeRundownPlaylistId = activeRundownPlaylist?._id
+
 			let settings: TSRSettings = peripheralDevice.settings || {}
 
 			const devices: {
@@ -494,7 +498,7 @@ export class TSRHandler {
 						this.logger.info('Initializing device: ' + deviceId)
 						this.logger.info('new', deviceOptions)
 						ps.push(
-							keepTrack(this._addDevice(deviceId, deviceOptions), 'add_' + deviceId)
+							keepTrack(this._addDevice(deviceId, deviceOptions, activeRundownPlaylistId), 'add_' + deviceId)
 						)
 					}
 				} else {
@@ -514,7 +518,7 @@ export class TSRHandler {
 							ps.push(
 								keepTrack(this._removeDevice(deviceId), 'remove_' + deviceId)
 								.then(() => {
-									return keepTrack(this._addDevice(deviceId, deviceOptions), 're-add_' + deviceId)
+									return keepTrack(this._addDevice(deviceId, deviceOptions, activeRundownPlaylistId), 're-add_' + deviceId)
 								})
 							)
 						}
@@ -546,7 +550,7 @@ export class TSRHandler {
 		this._triggerupdateExpectedPlayoutItems() // So that any recently created devices will get all the ExpectedPlayoutItems
 		this.logger.info('updateDevices end')
 	}
-	private async _addDevice (deviceId: string, options: DeviceOptionsAny): Promise<any> {
+	private async _addDevice (deviceId: string, options: DeviceOptionsAny, activeRundownPlaylistId: string | undefined): Promise<any> {
 		this.logger.debug('Adding device ' + deviceId)
 
 		try {
@@ -555,7 +559,7 @@ export class TSRHandler {
 				throw new Error(`There is already a _coreTsrHandlers for deviceId "${deviceId}"!`)
 			}
 
-			const devicePr: Promise<DeviceContainer> = this.tsr.addDevice(deviceId, options)
+			const devicePr: Promise<DeviceContainer> = this.tsr.addDevice(deviceId, options, activeRundownPlaylistId)
 
 			let coreTsrHandler = new CoreTSRDeviceHandler(this._coreHandler, devicePr, deviceId, this)
 

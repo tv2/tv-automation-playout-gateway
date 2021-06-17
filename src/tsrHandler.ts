@@ -593,7 +593,7 @@ export class TSRHandler {
 					&& deviceType === DeviceType.ATEM && !disableAtemUpload
 				) {
 					// const ssrcBgs = studio.config.filter((o) => o._id.substr(0, 18) === 'atemSSrcBackground')
-					const assets = (options).options.mediaPoolAssets
+					const assets = (options as DeviceOptionsAtem).options.mediaPoolAssets
 					if (assets && assets.length > 0) {
 						try {
 							// TODO: support uploading clips and audio

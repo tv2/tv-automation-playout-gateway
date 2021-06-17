@@ -49,6 +49,11 @@ const PLAYOUT_SUBDEVICE_CONFIG: SubDeviceConfigManifest['config'] = {
 			id: 'options.fps',
 			name: 'Frame rate',
 			type: ConfigManifestEntryType.NUMBER
+		},
+		{
+			id: 'options.retryInterval',
+			name: 'Media retry interval (ms), -1 disables, 0 default',
+			type: ConfigManifestEntryType.NUMBER
 		}
 	],
 	[TSRDeviceType.ATEM]: [

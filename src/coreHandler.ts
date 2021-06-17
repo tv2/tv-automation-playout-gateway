@@ -65,6 +65,8 @@ export class CoreHandler {
 	private _studioId: string
 	private _timelineSubscription: string | null = null
 	private _expectedItemsSubscription: string | null = null
+	private _rundownPlaylistsSubscription: string | null = null
+	private _rundownsSubscription: string | null = null
 
 	private _statusInitialized: boolean = false
 	private _statusDestroyed: boolean = false
@@ -264,6 +266,19 @@ export class CoreHandler {
 					this.logger.error(err)
 				})
 
+				// Set up rundownPlaylists data subscription:
+				if (this._rundownPlaylistsSubscription) {
+					this.core.unsubscribe(this._rundownPlaylistsSubscription)
+					this._rundownPlaylistsSubscription = null
+				}
+				this.core.autoSubscribe('rundownPlaylists', {
+					studioId: studioId
+				}).then((subscriptionId) => {
+					this._rundownPlaylistsSubscription = subscriptionId
+				}).catch((err) => {
+					this.logger.error(err)
+				})
+
 				// Set up expectedPlayoutItems data subscription:
 				if (this._expectedItemsSubscription) {
 					this.core.unsubscribe(this._expectedItemsSubscription)
@@ -277,6 +292,22 @@ export class CoreHandler {
 					this.logger.error(err)
 				})
 				this.logger.debug('VIZDEBUG: Subscription to expectedPlayoutItems done')
+				// Set up rundowns data subscription:
+				if (this._rundownsSubscription) {
+					this.core.unsubscribe(this._rundownsSubscription)
+					this._rundownsSubscription = null
+				}
+				this.core
+					.autoSubscribe('rundowns', {
+						studioId: studioId,
+					})
+					.then((subscriptionId) => {
+						this._rundownsSubscription = subscriptionId
+					})
+					.catch((err) => {
+						this.logger.error(err)
+					})
+				this.logger.debug('VIZDEBUG: Subscription to rundowns done')
 			}
 
 			if (this._tsrHandler) {
